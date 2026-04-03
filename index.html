@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Universe ❤️</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body onload="initPage()">
+<div id="introScreen">
+    <h1>Enter our special date 💖</h1>
+
+    <input type="text" id="loveInput" placeholder="DD.MM.YYYY">
+
+    <button onclick="checkLoveDate()">Enter 💌</button>
+
+    <h2 id="errorMsg"></h2>
+</div>
+<div id="timerScreen" style="display:none;">
+    <h1 id="countdown"></h1>
+</div>
+<!-- 🎥 Background Video -->
+<video id="bgVideo" loop playsinline>
+    <source src="video/bg-video.mp4" type="video/mp4">
+</video>
+<!-- 🎂 CANDLE SCREEN -->
+<div id="candleScreen" style="display:none;">
+    <h1>Make a Wish 💫</h1>
+    <h2 id="loveCounter"></h2>
+
+    <div class="cake">🎂</div>
+
+    <button onclick="blowCandle()">Blow Candle 💖</button>
+
+    <h2 id="wishMsg"></h2>
+</div>
+
+<!-- 💖 FRONT PAGE -->
+<section class="home">
+    <h1>Happy Birthday, Beautiful! 🎂💖</h1>
+    <p>Today is all about celebrating you and the joy you bring into my life ✨</p>
+    <button onclick="startCelebration()">Start the Celebration 🎉</button>
+</section>
+
+<!-- 🌸 STORY SECTION -->
+<div id="storySection">
+
+    <!-- 🌌 FIRST INTRO SECTION -->
+    <section class="page1 fade">
+        <h1>Years ago… a little boy was born 🌌</h1>
+        <p>
+        The world didn’t know it yet. The stars didn’t whisper it.<br><br>
+        Time didn’t reveal it. But somewhere in destiny’s quiet plan,
+        a little heartbeat started beating…<br><br> for a future that would one day
+        change my entire world.
+        </p>
+    </section>
+
+    <section class="page baby fade">
+        <img src="images/baby.jpeg">
+        <h1>👶 The Little Star 🌟</h1>
+        <p>This tiny human had no idea he would grow up to protect my heart.<br><br>
+        That innocent face… that calm stare… even back then,
+        there was something special written all over you.<br><br>
+        You were just a child.<br><br>
+        But destiny already knew you were going to be my universe thangoo.<br><br>
+        You were once a tiny heartbeat in this huge universe...<br><br>
+        but destiny already decided you would become my whole world ❤️</p>
+    </section>
+
+    <section class="page school fade">
+        <img src="images/school.jpeg">
+        <h1>📚 School Days</h1>
+        <p>Every small dream, every little achievement,
+        shaped you into the amazing person I love today 💕<br><br>
+        You were learning about the world…<br><br>
+        while the world was slowly shaping you into the man I would fall for.<br><br>
+        Every classroom memory, every small achievement,
+        every silent struggle —
+        it was all building the strength I admire today pattu.</p>
+    </section>
+
+    <section class="page college fade">
+        <img src="images/college.jpeg">
+        <h1>🎓 College Days & Big Dreams ✨</h1>
+        <p>
+        Then came the college phase…
+        where dreams became bigger and responsibilities became real.<br><br>
+        <br><br>
+        Late night studies, endless assignments,
+        laughter with friends, silent pressure —
+        you handled it all with quiet strength.
+        <br><br>
+        You were no longer just growing…<br><br>
+        you were becoming.<br><br>
+        Becoming confident.<br><br>
+        Becoming independent.<br><br>
+        Becoming the man I’m so proud of today my man💖
+        </p>
+    </section>
+
+    <section class="page teen fade">
+        <img src="images/teen.jpeg">
+        <h1>🔥 Growing Stronger</h1>
+        <p>You faced life bravely, became stronger,
+        wiser and kinder every single day 💪✨<br><br>
+        Life made you wiser thangameyyy.<br><br>
+        Challenges made you stronger.<br><br>
+        And through every phase,
+        you kept that same beautiful heart.<br><br>
+        The boy was slowly becoming the man<br><br>
+        who would one day hold my hands and calm my fears chlm.</p>
+    </section>
+
+    <section class="page us1 fade">
+        <img src="images/us1.jpeg">
+        <h1>💞 The Day We Met</h1>
+         <p>The day you entered my life,
+        everything changed in the most beautiful way 🌍💖 <br><br>
+        And then…one random day,
+        our worlds collided.<br><br>
+        I didn’t know it at first,
+        but that moment became the beginning of my safest place.<br><br>
+        You didn’t just enter my life.<br><br>
+        You changed it thangameyy.</p>
+    </section>
+
+    <section class="page us2 fade">
+        <img src="images/us2.jpeg">
+        <h1>💍 My Today & Always</h1>
+        <p>You are not just my love...
+        you are my peace, my comfort, my forever 🫶<br><br>
+        You were a little boy once.<br><br>
+        You are my man today pattu.<br><br>
+        And one day…
+        I hope you’ll be the old man<br><br>
+        still holding my hand<br><br>
+        still making me laugh<br><br>
+        still choosing me thangoo.<br><br>
+        Happy Birthday to the love of my life.<br><br>
+        You are my entire universe. 💖</p>
+    </section>
+
+    <!-- 🎶 DEDICATION SONGS SECTION -->
+    <section class="songsSection fade">
+        <h1>🎵 Songs I Dedicate To You 💖</h1>
+        <p>there are many songs i wanted to deticate for you but i mentioning few songs which makes me more emotional when i listen to them.💝<br><br>
+        I hope you will like these songs and whenever you listen to these songs you will think about me and our love story thangameyy.💝<br><br>
+        these songs are not just melodies, they are the soundtrack of our love story, each note echoing the emotions we share. <br><br>Whenever you listen to them, I hope they remind you of the beautiful moments we've created together and the deep connection we have. <br><br>These songs are a reflection of my feelings for you, and I hope they bring a smile to your face and warmth to your heart every time you hear them.<br><br>
+        these songs are a small token of my love for you, a way to express the emotions that words sometimes fail to capture. <br><br>Each song holds a special meaning, just like our relationship.<br><br> Whenever you listen to them, I hope they remind you of the beautiful moments we've shared and the deep connection we have.<br><br> These songs are a reflection of my feelings for you, and these are not enough to describe my love for you but i hope these songs will make you feel how much i love you and how much you mean to me thangoo💝..<br><br>
+        this day is my day because my man birthday iam lucky to have you as mine avlootha ithu pothu unna describe panna illaah💝<br><br>
+
+        
+
+    </p>
+
+        <div class="song">
+            <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/0Y6YW1552df031DjV8qBHv"
+            width="100%" height="352"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+            <p class="songNote">
+            If you are mine, these winds are yours.💖<br><br>
+            If you are mine, all the paths are yours.💖<br><br>
+            If you are mine, I am yours.💖
+            </p>
+</p>
+        </div>
+
+        <div class="song">
+            <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/1c9KP5bpnMRVJs20ONXa5a"
+            width="100%" height="352"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+            <p class="songNote">
+            அட ரோஜாப்பூக்கள்
+            அழுதால் அது தேனை சிந்தும்💖<br><br>
+            என் ராஜாபையன் நீ அழுதால்
+            அதில் ஞானம் மிஞ்சும்💖<br><br>
+
+            உன் சோகம் ஒரு மேகம்💖<br><br>
+            நான் சொன்னால் அது போகும்
+            உன் கண்ணீா் ஏந்தும் கன்னம் நான் ஆகும்💖
+            </p>
+</p>
+        </div>
+
+        <div class="song">
+            <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/6v2kdsoQiRAcjUSndjcKxj"
+            width="100%" height="352"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+            <p class="songNote">
+            தன்னந்தனி வீடு💖<br><br>
+            செல்வம் பதினாறு💖<br><br>
+            வந்தாலும் தேவை நீயே
+            அன்னை மடி வாசம்💖<br><br>
+            உன்னில் தினம் வீச
+            கொண்டேனே காதல் நோயே💖<br><br>
+            எத்தனை கோடி ஜென்மம்
+            உயிர் வந்தது உன்னையும் தேடி💖
+            </p>
+</p>
+        </div>
+
+        <div class="song">
+           <iframe data-testid="embed-iframe" 
+           style="border-radius:12px" 
+           src="https://open.spotify.com/embed/track/0OLTYqD8FpjkLsxJmdWmgi?utm_source=generator" 
+           width="100%" height="352" 
+           frameBorder="0" allowfullscreen="" 
+           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+           loading="lazy"></iframe>
+           <p class="songNote">
+            I would scatter myself along your paths if you are my fellow traveler💖<br><br>
+            I would not even think about where I am headed if you are with me as my fellow traveler💖<br><br>
+            I have surrendered myself to you, this became a sign of love💖<br><br>
+            Quietly, a longing for you awakened, quietly, this heart became a wanderer💖
+            </p>
+</p>
+        </div>
+
+        <div class="song">
+            <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/5v0U63Sl17CTUjGQiiMFxm"
+            width="100%" height="352"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+            <p class="songNote">
+            உசுரெல்லாம் இனிக்குதா💖<br><br>
+            உன் தோளில் சாஞ்சிட்டா💖
+            சிறகுதா முளைக்குதா💖<br><br>
+            உன் கைய பிடிச்சிட்டா💖<br><br>
+
+            ஒரு வார்த்தைக்கூட💖<br><br>
+            இங்கு சொல்ல தேவை இல்ல
+            காதல் இதுதான்💖
+            </p>
+</p>
+        </div>
+
+    </section>
+
+    <!-- 💌 FINAL MESSAGE -->
+    <section class="finalMessage fade">
+        <h1>A Special Message For You 💌</h1>
+        <p>
+        On this special day, I just want you to know how grateful I am
+        to have you in my life thangoo. Your smile lights up my darkest days,
+        your voice is my favorite sound, and your love is my greatest blessing.
+        <br><br>
+        You are my best friend, my partner in crime,
+        my biggest support system and my safest place.<br><br>
+        i know i hurt you many times but i promise you i will never leave you at any situation,you are my lucky charm 
+pattu
+        <br><br>
+        I hope this new year of your life brings endless happiness,
+        crazy adventures, success in everything you do alagu,you are my constant,my father vaiarakattyy,
+        and all the love your heart can hold pattuma.
+        <br><br>
+        Intha song la varamaari ella phase namaku venum mu namma mrg namma kolanth anamakunu chinna veedu nii naaa then namma kolantha namakunu oru bike simple aana life pothum thangoo unnoda enaku vaalanaum last vara i need u only thangoo💝<br><br>
+        Happy Birthday, my universe ❤️<br><br>
+        I will choose you. Over and over again.
+        Always.i love you forever<br><br>
+        my love,<br><br>
+        my thangoo,<br><br>
+        my chlm,<br><br>
+        my pattu,<br><br>
+        my sakarakatti,<br><br>
+        my gem,<br><br>
+        my everything.<br><br>
+        my universe.....
+        </p>
+    </section>
+    <!-- 💘 CLICK NEXT SURPRISE -->
+    <section class="surprise fade">
+    <h1>One Last Surprise For You 💝</h1>
+    <button onclick="openFinalPage()">Click Here ❤️</button>
+    </section>
+
+</div>
+<section class="proposalPage" id="proposalPage" style="display:none;">
+    <h1 id="proposalText">Will you be mine forever? 💍</h1>
+
+    <div class="btns">
+        <button id="yesBtn" onclick="acceptedLove()">YES 💖</button>
+        <button id="noBtn">NO 😭</button>
+    </div>
+</section>
+<!-- 🎉 FINAL SURPRISE PAGE -->
+    <section class="finalSurprise" id="finalSurprise">
+    <h1>Happy Birthday My Love ❤️</h1>
+    <div class="hearts"></div>
+    <div class="nameFloat"></div>
+    
+    </section>
+    
+    
+
+<script src="script.js"></script>
+
+</body>
+</html>

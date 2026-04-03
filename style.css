@@ -1,0 +1,434 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+    background: transparent;
+}
+
+/* 🎥 Full Background Video */
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    z-index: -1;
+
+    pointer-events: none; /* 🔥 IMPORTANT FIX */
+    filter: brightness(0.6) blur(2px);
+}
+
+/* 🌑 Dark overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.4);
+
+    z-index: 0; /* 🔥 FIX (before -0.5 was wrong) */
+    pointer-events: none; /* 🔥 IMPORTANT */
+}
+
+/* 💖 TEXT GLOW */
+h1, p {
+    text-shadow: 0 0 10px rgba(255,255,255,0.8),
+                 0 0 20px rgba(255,105,180,0.6);
+}
+
+/* 💖 FRONT PAGE */
+.home{
+    height:100vh;
+    background: transparent;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    color:white;
+
+    position: relative;   /* 🔥 ADD */
+    z-index: 2;           /* 🔥 ADD */
+}
+
+.home h1{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.home p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+/* 🔘 BUTTON FIX */
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:#ffffff;
+    color:#ff416c;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+
+    position: relative;  /* 🔥 ADD */
+    z-index: 3;          /* 🔥 ADD */
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* Hide story initially */
+#storySection{
+    display:none;
+    position: relative; /* 🔥 ADD */
+    z-index: 2;         /* 🔥 ADD */
+}
+
+/* 🌌 COMMON SECTION */
+.page, .page1, .songsSection, .finalMessage, .surprise {
+    min-height:100vh;
+    background: transparent;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+
+    color:white;
+
+    position: relative; /* 🔥 ADD */
+    z-index: 2;         /* 🔥 ADD */
+}
+
+/* 🖼 Images */
+.page img{
+    width:350px;
+    height:550px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:25px;
+    box-shadow:0 0 25px rgba(255,255,255,0.4);
+    transition:0.5s;
+}
+
+.page img:hover{
+    transform:scale(1.08);
+}
+
+/* Text */
+.page h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.page p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* 🎶 Songs */
+.song{
+    max-width:500px;
+    margin:30px auto;
+}
+
+/* 💌 FINAL MESSAGE */
+.finalMessage p{
+    max-width:900px;
+    margin:auto;
+    line-height:1.8;
+    font-size:20px;
+}
+
+/* 🌟 Fade */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* 💘 Surprise */
+.surprise h1{
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+/* 🎉 Final Page */
+.finalSurprise{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+
+    background: radial-gradient(circle,#4efff0,#ff0080);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    color:white;
+    z-index:9999;
+    overflow:hidden;
+}
+
+.finalSurprise h1{
+    font-size:60px;
+}
+
+/* 💖 Hearts */
+.hearts span{
+    position:absolute;
+    bottom:-20px;
+    font-size:28px;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) scale(1.6);
+        opacity:0;
+    }
+}
+
+/* 🎉 Confetti fix */
+canvas {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+/* 🌙 Dark Mode */
+.dark {
+    background: black !important;
+    color: white !important;
+}
+/* ⏳ Intro Screen */
+#introScreen{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    z-index: 9999;
+    text-align: center;
+}
+
+#introScreen h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#countdown{
+    margin-top: 20px;
+    font-size: 30px;
+}
+#countdown{
+    font-size: 40px;
+    color: pink;
+    text-shadow: 0 0 20px hotpink;
+}
+/* 🎂 Candle Screen */
+#candleScreen{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    z-index: 9999;
+    text-align: center;
+}
+
+.cake{
+    font-size: 80px;
+    margin: 20px;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow{
+    from{ filter: drop-shadow(0 0 5px orange); }
+    to{ filter: drop-shadow(0 0 20px yellow); }
+}
+
+#wishMsg{
+    margin-top: 20px;
+    font-size: 25px;
+    color: pink;
+}
+.nameFloat span{
+    position: fixed;
+    bottom: -50px;
+    font-size: 22px;
+    color: pink;
+    font-weight: bold;
+    white-space: nowrap;
+
+    animation: floatNames linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatNames{
+    0%{
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+#loveCounter{
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ff4d88;
+    text-shadow: 0 0 15px hotpink;
+    animation: glowText 2s infinite alternate;
+}
+
+@keyframes glowText{
+    from{ opacity: 0.7; }
+    to{ opacity: 1; text-shadow: 0 0 25px hotpink; }
+}
+.proposalPage{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+.proposalPage h1{
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.btns{
+    position: relative;
+}
+
+#yesBtn{
+    padding: 15px 30px;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+#noBtn{
+    padding: 15px 30px;
+    font-size: 18px;
+    position: absolute;
+}
+/* 💍 PROPOSAL PAGE FIX */
+.proposalPage{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: radial-gradient(circle,#ff4d88,#000);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    z-index: 99999; /* 🔥 VERY IMPORTANT */
+    color: white;
+}
+
+/* Buttons container */
+.proposalPage .btns{
+    margin-top: 30px;
+    position: relative;
+}
+
+/* YES button */
+#yesBtn{
+    margin-right: 20px;
+}
+
+/* ❌ NO BUTTON FIX */
+#noBtn{
+    position: absolute; /* 🔥 MUST */
+    left: 150px;
+}
+#introScreen input{
+    padding:12px;
+    border-radius:20px;
+    border:none;
+    margin-top:20px;
+    font-size:18px;
+    text-align:center;
+    outline:none;
+}
+
+#errorMsg{
+    margin-top:15px;
+    color:red;
+    font-size:18px;
+}
+#timerScreen{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: pink;
+    font-size: 60px;
+
+    z-index: 9999;
+}
